@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Isabella Castaño - Ingeniera en Sistemas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            color: #333333;
+            display: flex;
+            min-height: 100vh;
+        }
+        /* Sidebar */
+        nav.sidebar {
+            background-color: #cccccc;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 10px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        nav.sidebar img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #666666;
+            margin-bottom: 20px;
+        }
+        nav.sidebar h1 {
+            margin: 0 0 25px;
+            font-size: 1.6em;
+            color: #222222;
+            text-align: center;
+        }
+        nav.sidebar a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #666666;
+            padding: 10px 20px;
+            margin: 8px 0;
+            border-radius: 20px;
+            width: 140px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+        nav.sidebar a:hover,
+        nav.sidebar a.activo {
+            background-color: #444444;
+        }
+        /* Main content */
+        main.content {
+            flex-grow: 1;
+            padding: 30px;
+            background-color: #f5f5f5;
+            overflow-y: auto;
+        }
+        section {
+            max-width: 700px;
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        /* Portafolio proyectos */
+        .proyecto {
+            margin-bottom: 20px;
+        }
+        .proyecto h3 {
+            margin-top: 0;
+            color: #444444;
+        }
+        /* Estudio listado */
+        #estudio ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        #estudio ul li {
+            margin-bottom: 10px;
+        }
+        /* Perfil */
+        #perfil .datos-personales {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        #perfil h3 {
+            margin-top: 25px;
+        }
+        #perfil ul.habilidades {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        #perfil ul.habilidades li {
+            background-color: #666666;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+        /* Footer */
+        footer {
+            background-color: #cccccc;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #222222;
+            flex-shrink: 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 220px;
+        }
+        footer a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #444444;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #000000;
+        }
+        /* Ocultar secciones no activas */
+        .seccion {
+            display: none;
+        }
+        .activo {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <img src="https://i.imgur.com/c96DJYv.png" alt="" />
+        <h1>Isabella Castaño</h1>
+        <a href="#" class="activo" onclick="mostrarSeccion('portafolio', this)">Portafolio</a>
+        <a href="#" onclick="mostrarSeccion('estudio', this)">Estudio</a>
+        <a href="#" onclick="mostrarSeccion('perfil', this)">Perfil</a>
+    </nav>
+
+    <main class="content">
+        <section id="portafolio" class="seccion activo">
+            <h2>Portafolio</h2>
+            <div class="proyecto">
+                <h3>Aplicación de Gestión de Tareas</h3>
+                <p>Desarrollé una aplicación web para gestionar tareas diarias, utilizando React para el frontend y Node.js para el backend.</p>
+                <p><strong>Tecnologías:</strong> React, Node.js, MongoDB</p>
+            </div>
+            <div class="proyecto">
+                <h3>Sistema de Inventarios</h3>
+                <p>Implementé un sistema para el control de inventarios en una pequeña empresa, facilitando la gestión y seguimiento de productos.</p>
+                <p><strong>Tecnologías:</strong> PHP, MySQL, Bootstrap</p>
+            </div>
+            <div class="proyecto">
+                <h3>Dashboard de Análisis de Datos</h3>
+                <p>Creé un dashboard interactivo para visualizar métricas clave a partir de grandes volúmenes de datos.</p>
+                <p><strong>Tecnologías:</strong> Python, Dash, Pandas</p>
+            </div>
+        </section>
+
+        <section id="estudio" class="seccion">
+            <h2>Estudio</h2>
+            <ul>
+                <li><strong>Ingeniería en Sistemas</strong> - Universidad Nacional, 2015-2020</li>
+                <li><strong>Certificación en Desarrollo Web Full Stack</strong> - Plataforma XYZ, 2021</li>
+                <li><strong>Curso de Análisis de Datos con Python</strong> - Plataforma ABC, 2022</li>
+                <li><strong>Curso de Seguridad Informática Básica</strong> - Plataforma DEF, 2023</li>
+            </ul>
+        </section>
+
+        <section id="perfil" class="seccion">
+            <h2>Perfil</h2>
+            <div class="datos-personales">
+                <p>Hola, soy <strong>Isabella Castaño</strong>, ingeniera en sistemas con pasión por el desarrollo de software y la tecnología aplicada a la mejora de procesos. Me especializo en crear soluciones eficientes y escalables.</p>
+                <p>Tengo experiencia en desarrollo web, análisis de datos y gestión de proyectos tecnológicos.</p>
+            </div>
+            <h3>Habilidades</h3>
+            <ul class="habilidades">
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>SQL</li>
+                <li>Git</li>
+                <li>Docker</li>
+                <li>Metodologías Ágiles</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Isabella Castaño</p>
+        <p>
+            <a href="https://linkedin.com/in/isabellacastano" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+            <a href="https://github.com/isabellacastano" target="_blank" rel="noopener noreferrer">GitHub</a> | 
+            <a href="mailto:isabella@example.com">Email</a>
+        </p>
+    </footer>
+
+    <script>
+        function mostrarSeccion(id, elemento) {
+            document.querySelectorAll('.seccion').forEach(sec => sec.classList.remove('activo'));
+            document.getElementById(id).classList.add('activo');
+            // Actualizar estilos de menú
+            document.querySelectorAll('nav.sidebar a').forEach(a => a.classList.remove('activo'));
+            elemento.classList.add('activo');
+        }
+    </script>
+
+</body>
+</html>
