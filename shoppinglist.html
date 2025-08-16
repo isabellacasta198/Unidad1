@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <title>Lista de compras dinámica</title>
+        <!--este es el estilo css embebido-->
+        <style>
+            li{
+                margin-bottom:10px;
+            }
+            li button{
+                font: size 12px;
+                margin-left:20px;
+                color:antiquewhite;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>My shopping list</h1>
+        <div>
+            <label for ="item">Enter a new item</label>
+            <input type="text" name="item " id="item">
+            <button>add item </button>
+        </div>
+        <ul>
+
+        </ul>
+
+        <script>
+
+            //se crean referencias a los 3 elememtos importantes de la pagina que necesitamos usar:
+            const list=document.querySelector("ul");
+            const input=document.querySelector("input");
+            const button= document.querySelector("button");
+
+            //funcion para responder a evento a evento del boton:
+            button.addEventListener("click", ()=>{
+                //capturamos el valor ingresado en la caja de texto
+                const myItem=input.value;
+                input.value="";
+                //creamos nuevos elementos html para este item 
+                const listItem=document.createElement("li");
+                const listText= document.createElement("span");
+                const listBtn= document.createElement("button");
+
+                //y lo agregamos a la lista vacia;
+                //primero al texto:
+                listItem.appendChild(listText);
+                listText.textContent=myItem;
+
+                //boton para elinimar el item
+                listItem.appendChild(listBtn);
+                listBtn.textContent= "Delete";
+                
+                list.appendChild(listItem);
+
+                //adicionar funcionalidad al boton de borrar 
+                listBtn.addEventListener("click", () =>{
+                    list.removeChild(listItem);
+                })
+                //darle el foco a la caja de texto (poner el cursor ahi):
+                input.focus();
+
+                        });
+        </script>
+
+    </body>
+</html>
